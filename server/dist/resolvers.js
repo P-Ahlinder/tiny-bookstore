@@ -4,7 +4,7 @@ const booksTable = db.table("books");
 const authorsTable = db.table("authors");
 const resolvers = {
     Mutation: {
-        saveBook: async (_, args) => {
+        addBook: async (_, args) => {
             const existingBooks = await booksTable.findAll((book) => {
                 return book.title.toLowerCase() === args.title.toLowerCase();
             });
@@ -31,15 +31,17 @@ const resolvers = {
                 authorId: authorIdString,
             });
         },
-        deleteBookById: async (_, args) => await booksTable.delete(args.id),
+        removeBook: async (_, args) => await booksTable.delete(args.id),
     },
     Query: {
+        book: async (_, args) => await booksTable.findById(args.id),
         books: async () => await booksTable.findAll(),
         booksByTitle: async (_, args) => {
             return await booksTable.findAll((book) => {
                 return book.title.toLowerCase().includes(args.title.toLowerCase());
             });
         },
+        author: async (_, args) => await authorsTable.findById(args.id),
         authors: async () => await authorsTable.findAll(),
         authorsByName: async (_, args) => {
             return await authorsTable.findAll((author) => {

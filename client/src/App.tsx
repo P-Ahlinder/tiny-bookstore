@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import BookList from "./pages/BookList";
+import BookDetails from "./pages/BookDetails";
+import AuthorDetails from "./pages/AuthorDetails";
+import AddBook from "./pages/AddBook";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <h1>hej</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<BookList />} />
+        <Route path="/book/:id" element={<BookDetails />} />
+        <Route path="/author/:id" element={<AuthorDetails />} />
+        <Route path="/add-book" element={<AddBook />} />
+      </Routes>
     </div>
   );
 }
