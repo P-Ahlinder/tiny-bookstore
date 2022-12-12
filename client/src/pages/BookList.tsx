@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import BookListItem from "../components/BookListItem";
 import { Book } from "../types";
 
@@ -17,10 +17,14 @@ const GET_BOOKS = gql`
   }
 `;
 
-function Books() {
-  const { loading, error, data } = useQuery(GET_BOOKS);
+function BookList() {
+  const { loading, error, data, refetch } = useQuery(GET_BOOKS);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchResult = data.books.filter((book: Book) => {
@@ -44,7 +48,7 @@ function Books() {
 
   return (
     <div>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form className="search-form" onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="search">Search: </label>
         <input
           onChange={handleSearch}
@@ -54,12 +58,13 @@ function Books() {
           autoComplete="off"
         />
       </form>
-      <h1>Books: </h1>
-      {getBooksArray().map((book: Book) => (
-        <BookListItem book={book} key={book.id} />
-      ))}
+      <div className="book-list">
+        {getBooksArray().map((book: Book) => (
+          <BookListItem book={book} key={book.id} />
+        ))}
+      </div>
     </div>
   );
 }
 
-export default Books;
+export default BookList;

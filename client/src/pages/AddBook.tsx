@@ -32,11 +32,9 @@ function AddBook() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
-  if (data) console.log(data);
 
   return (
-    <section>
-      <h1>Add new book</h1>
+    <section className="add-book">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title: </label>
         <input ref={titleInputRef} required id="title" type="text" />
@@ -53,7 +51,7 @@ function AddBook() {
         />
         <button type="submit">Submit</button>
       </form>
-      <p>{data ? `Added: "${data.addBook.title}" to library!` : ""}</p>
+      <p className="info-message">{data ? `Added: "${data.addBook.title}" to library!` : ""}</p>
     </section>
   );
 }

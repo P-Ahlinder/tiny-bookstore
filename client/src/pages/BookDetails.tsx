@@ -27,7 +27,7 @@ function BookDetails() {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <section>
+    <section className="book-details">
       <h1>{data.book.title}</h1>
       <p>
         Author: <Link to={`/author/${data.book.author.id}`}>{data.book.author.name}</Link>

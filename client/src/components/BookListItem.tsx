@@ -1,3 +1,4 @@
+import { TfiTrash } from "react-icons/tfi";
 import { gql, useMutation } from "@apollo/client";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -19,20 +20,33 @@ const REMOVE_BOOK = gql`
 function BookListItem({ book }: Props) {
   const [removeBook, { data, loading, error }] = useMutation(REMOVE_BOOK);
 
-  // TODO: Add logic to remove book!
   const handleRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(book.title);
+    removeBook({
+      variables: {
+        removeBookId: book.id,
+      },
+    });
   };
 
+  if (data) {
+    return (
+      <article>
+        <p>Removed "{data.removeBook.title}" from library!</p>
+      </article>
+    );
+  }
+
   return (
-    <article>
+    <article className="book-list-item">
       <Link to={`/book/${book.id}`}>
         <h2>{book.title}</h2>
       </Link>
       <Link to={`/author/${book.author.id}`}>
         <p>{book.author.name}</p>
       </Link>
-      <button onClick={handleRemove}>Remove</button>
+      <button onClick={handleRemove}>
+        <TfiTrash />
+      </button>
     </article>
   );
 }

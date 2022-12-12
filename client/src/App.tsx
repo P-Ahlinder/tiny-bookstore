@@ -5,18 +5,20 @@ import BookDetails from "./pages/BookDetails";
 import AuthorDetails from "./pages/AuthorDetails";
 import AddBook from "./pages/AddBook";
 import Navbar from "./components/Navbar";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<BookList />} />
-        <Route path="/book/:id" element={<BookDetails />} />
-        <Route path="/author/:id" element={<AuthorDetails />} />
-        <Route path="/add-book" element={<AddBook />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<BookList />} />
+          <Route path="/book/:id" element={<BookDetails />} />
+          <Route path="/author/:id" element={<AuthorDetails />} />
+          <Route path="/add-book" element={<AddBook />} />
+        </Routes>
+      </main>
     </div>
   );
 }
