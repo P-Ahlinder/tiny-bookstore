@@ -18,8 +18,8 @@ interface Author extends Entity {
 
 const resolvers = {
   Mutation: {
-    addBook: async (_, args) => {
-      const existingBooks: any = await booksTable.findAll((book: Book) => {
+    addBook: async (_, args: { title: string; authorName: string; year: number }) => {
+      const existingBooks = await booksTable.findAll((book: Book) => {
         return book.title.toLowerCase() === args.title.toLowerCase();
       });
 
@@ -48,29 +48,30 @@ const resolvers = {
         authorId: authorIdString,
       });
     },
-    removeBook: async (_, args) => await booksTable.delete(args.id),
+    removeBook: async (_, args: { id: string }) => await booksTable.delete(args.id),
   },
   Query: {
-    book: async (_, args) => await booksTable.findById(args.id),
+    book: async (_, args: { id: string }) => await booksTable.findById(args.id),
     books: async () => await booksTable.findAll(),
-    booksByTitle: async (_, args) => {
+    booksByTitle: async (_, args: { title: string }) => {
       return await booksTable.findAll((book: Book) => {
         return book.title.toLowerCase().includes(args.title.toLowerCase());
       });
     },
-    author: async (_, args) => await authorsTable.findById(args.id),
+    author: async (_, args: { id: string }) => await authorsTable.findById(args.id),
     authors: async () => await authorsTable.findAll(),
-    authorsByName: async (_, args) => {
+    authorsByName: async (_, args: { name: string }) => {
       return await authorsTable.findAll((author: Author) => {
         return author.name.toLowerCase().includes(args.name.toLowerCase());
       });
     },
   },
   Book: {
-    author: async (parent) => await authorsTable.findById(parent.authorId),
+    author: async (parent: { authorId: string }) => await authorsTable.findById(parent.authorId),
   },
   Author: {
-    books: async (parent) => await booksTable.findAll((book: Book) => book.authorId === parent.id),
+    books: async (parent: { id: string }) =>
+      await booksTable.findAll((book: Book) => book.authorId === parent.id),
   },
 };
 

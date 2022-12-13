@@ -31,8 +31,8 @@ function AuthorDetails() {
   return (
     <section className="author-details">
       <h1>{data.author.name}</h1>
-      <p>Birth year: {data.author.birth_year}</p>
-      <p>Nationality: {data.author.nationality}</p>
+      {data.author.birth_year && <p>Birth year: {data.author.birth_year}</p>}
+      {data.author.nationality && <p>Nationality: {data.author.nationality}</p>}
       <br />
       <h2>All books by author:</h2>
       <ul>

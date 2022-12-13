@@ -19,59 +19,15 @@
   },
   {
     "id": "w2z64QRl-unBiWa-ruik0",
-    "name": "J. K. Rowling"
-  },
-  {
-    "id": "o6ba1wj1S8sRWb6cwnbuY",
-    "name": "Simon"
+    "name": "J. K. Rowling",
+    "birth_year": 1965,
+    "nationality": "United Kingdom"
   },
   {
     "id": "DoOjOdp8lQa7dAVwh2NNg",
-    "name": "C. S. Lewis"
-  },
-  {
-    "id": "onGuVY-lfz0eJARRJevlE",
-    "name": "hej"
-  },
-  {
-    "id": "hokYy0YfiSRwpXSF7zf3c",
-    "name": "Per"
-  },
-  {
-    "id": "CYnx3PHpxE71B1HemEQSw",
-    "name": "bert"
-  },
-  {
-    "id": "960C-CRutRJ6FjNNrH3Jw",
-    "name": "testet"
-  },
-  {
-    "id": "D2EKsItOkLBhXzSZ3E_hA",
-    "name": "asdf"
-  },
-  {
-    "id": "0MzFBLW8MJ4km3EKUD4Mg",
-    "name": "sadg"
-  },
-  {
-    "id": "Siv1IPZxctdO4cKbf95Lq",
-    "name": "sadf"
-  },
-  {
-    "id": "B8uYnIc-VfrrOnjM1nmw4",
-    "name": "halsdf"
-  },
-  {
-    "id": "e6rkavZKv7aLhEd3kTtHZ",
-    "name": "sdf"
-  },
-  {
-    "id": "I7RZ1YiHDgPDLdnboDZ_P",
-    "name": "bnobobo"
-  },
-  {
-    "id": "IgydcFf-Q6pINvmzDGyV6",
-    "name": "jlsdf"
+    "name": "C. S. Lewis",
+    "birth_year": 1898,
+    "nationality": "United Kingdom"
   },
   {
     "id": "rQcIk6qN7B6fq6s-NIHh2",
@@ -128,5 +84,9 @@
   {
     "id": "ZPpTNjps3xj3fbbGEy3pL",
     "name": "Kirstin Pulioff"
+  },
+  {
+    "id": "Yos9D8QQ9b08mEvnseyIZ",
+    "name": "Petter Magnusson"
   }
 ]
