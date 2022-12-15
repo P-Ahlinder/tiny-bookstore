@@ -4,6 +4,10 @@ _Simple fullstack web application where you can search for and add/remove books 
 
 ---
 
+run `npm install` and `npm start` in both [/server](server) and [/client](client) to run the website.
+
+---
+
 The main goal of this application was to practice the use of TypeScript, GraphQL and React. The server is running a GraphQL API through Apollo-Server, which our React-app on the client side then calls to fetch (or mutate) the necessary data. In this case: books and authors!
 
 We used the npm package [fakebase](https://www.npmjs.com/package/fakebase) to simulate a DB with json-files. It is very simple to set up and allowed us to persist data for this small project, without much hassle.
