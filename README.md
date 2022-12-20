@@ -1,4 +1,4 @@
-# **Tiny Bookstore** 
+# **Tiny Bookstore** 📔
 
 _Simple fullstack web application where you can search for and add/remove books to a fictitious bookstore._
 
